@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const User = require('./models/users.models.js');
 const userRoutes = require('./routes/users.routes.js');
+const PORT = process.env.PORT || 3000;
 
 //json middleware
 app.use(express.json());
@@ -11,8 +12,8 @@ app.use(express.json());
 mongoose.connect('mongodb+srv://sacredlyula:XXXXAHHGAJ@tuesday.yzf3bah.mongodb.net/PLP-Students?retryWrites=true&w=majority&appName=tuesday')
 .then(() => {
   console.log('Connected to MongoDB');
-  app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+  app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 })
 .catch(err => {
